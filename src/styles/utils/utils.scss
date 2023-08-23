@@ -1,0 +1,37 @@
+$marginBottom: (10, 20, 30, 50);
+@each $mb in $marginBottom {
+	.mb-#{$mb} {
+		margin-bottom: #{$mb}px;
+	}
+}
+
+// Paddings
+
+$paddingTop: (80);
+@each $pt in $paddingTop {
+	.pt-#{$pt} {
+		padding-top: #{$pt}px;
+	}
+}
+
+$paddingBottom: (80);
+@each $pt in $paddingBottom {
+	.pb-#{$pt} {
+		padding-bottom: #{$pt}px;
+	}
+}
+
+// fonts 
+
+$fontWeight: (600);
+@each $fw in $fontWeight {
+	.fw-#{$fw} {
+		font-weight: #{$fw};
+	}
+}
+
+
+hr {
+	border-color: #000;
+	opacity: 0.1;
+}
