@@ -21,7 +21,7 @@ const RootLayout = ({ children }) => {
 	return (
 		<html lang="pl">
 			<body className={`${openSans.className} ${openSans.variable} ${lato.variable}`}>
-				<Header /> 
+				<Header />
 				{children}
 				<Footer />
 			</body>

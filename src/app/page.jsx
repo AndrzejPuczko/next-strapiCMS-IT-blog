@@ -11,7 +11,7 @@ const Home = () => (
 					quasi sae"
 			href="#"
 			btnIcon={IconTypes.ARROW_RIGHT}
-      className='mb-30'
+			className="mb-30"
 		/>
 
 		<div className="row">
@@ -23,7 +23,7 @@ const Home = () => (
 					quasi sae"
 					href="#"
 					btnIcon={IconTypes.ARROW_RIGHT}
-          className="mb-30"
+					className="mb-30"
 				/>
 			</div>
 			<div className="col col_4 m-mw-100">
@@ -34,7 +34,7 @@ const Home = () => (
 					quasi sae"
 					href="#"
 					btnIcon={IconTypes.ARROW_RIGHT}
-          className="mb-30"
+					className="mb-30"
 				/>
 			</div>
 			<div className="col col_4 m-mw-100">
@@ -45,7 +45,7 @@ const Home = () => (
 					quasi sae"
 					href="#"
 					btnIcon={IconTypes.ARROW_RIGHT}
-          className="mb-30"
+					className="mb-30"
 				/>
 			</div>
 		</div>
