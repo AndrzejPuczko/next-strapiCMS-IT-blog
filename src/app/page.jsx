@@ -1,22 +1,14 @@
 import Card from '@/components/card/Card'
 import { IconTypes } from '@/components/button/Button'
-import labels from '@/helpers/labels'
 import config from '@/config'
+import fetchBlogs from '@/helpers/fetch-blogs'
 
-const fetchBlogs = async params => {
-	const reqOptions = {
-		headers: {
-			Authorization: `Bearer ${process.env.API_TOKEN}`,
-		},
-	}
-	const request = await fetch(`${config.api}/api/blogs?populate=*${params}`, reqOptions)
-	const response = await request.json()
-
-	return response
-}
 
 const Home = async () => {
-	const [featuredBlogs, blogs] = await Promise.all([await fetchBlogs('&filters[isFeatured][$eq]=true'), await fetchBlogs('&sort=createdAt:desc&filters[isFeatured][$eq]=false')])
+	const [featuredBlogs, blogs] = await Promise.all([
+		await fetchBlogs('&filters[isFeatured][$eq]=true'),
+		await fetchBlogs('&sort=createdAt:desc&filters[isFeatured][$eq]=false&pagination[page]=1&pagination[pageSize]=3'),
+	])
 
 	return (
 		<div className="container pb-80">
@@ -27,6 +19,8 @@ const Home = async () => {
 					title={featuredBlog.attributes.Title}
 					summary={featuredBlog.attributes.Summary}
 					href={`/${featuredBlog.attributes.slug}`}
+					imgSrc={`${config.api}${featuredBlog.attributes.FeaturedImage.data.attributes.url}`}
+					imgAlt="Featured Image"
 					btnIcon={IconTypes.ARROW_RIGHT}
 					className="mb-30"
 				/>
@@ -41,6 +35,8 @@ const Home = async () => {
 							title={featuredBlog.attributes.Title}
 							summary={featuredBlog.attributes.Summary}
 							href={`/${featuredBlog.attributes.slug}`}
+							imgSrc={`${config.api}${featuredBlog.attributes.Thumbnail.data.attributes.url}`}
+							imgAlt="Featured Image"
 							btnIcon={IconTypes.ARROW_RIGHT}
 							className="mb-30"
 						/>
