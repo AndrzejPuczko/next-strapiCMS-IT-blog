@@ -3,13 +3,15 @@ import styles from './card.module.scss'
 import Button from '../button/Button'
 import ConditionalRenderer from '../Conditional-renderer'
 import getCategoryColor from '@/helpers/get-category-color'
-
+import Link from 'next/link'
 const Card = props => (
 	<div className={`${styles.card_wrap} ${props.className || ''}`}>
 		<div className={styles.card}>
 			<div className={styles.card_imageWrap}>
 				<div className={styles.card_image}>
-					<Image src={props.imgSrc} alt={props.imgAlt} fill={true} />
+					<Link href={props.href}>
+						<Image src={props.imgSrc} alt={props.imgAlt} fill={true} href={props.href} />
+					</Link>
 				</div>
 			</div>
 			<div className={styles.card_content}>
